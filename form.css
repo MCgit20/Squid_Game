@@ -19,7 +19,10 @@ body {
 
 section {
     position: relative;
-    display: flex;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;  
     width: 60%;
     height: 500px;
     transition: 0.5s;
@@ -117,6 +120,9 @@ button:hover {
     border-radius: 20px;
     color: red;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    opacity: 0; 
+    pointer-events: none; 
+    transition: opacity 0.5s ease;
 }
 .information {
     position: absolute;
@@ -133,6 +139,9 @@ button:hover {
     transform: skewX(2deg);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     color: #333;
+    opacity: 0; 
+    pointer-events: none; 
+    transition: opacity 0.5s ease;
 }
 
 a {
@@ -197,6 +206,8 @@ header .menu li a {
         text-align: center;
         font-size: 12px;
         padding: 8px;
+        opacity: 1;
+        pointer-events: all;
     }
 
     .image{
