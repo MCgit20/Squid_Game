@@ -7,11 +7,13 @@
 }
 
 body {
-    background:linear-gradient(90deg, #000 0 40%, rgba(0, 0, 0, 0.1)),url("img.jpg");
+    background:linear-gradient(270deg, #000 0 40%, rgba(0, 0, 0, 0.1)),url("img.jpg");
     background-position: center;
     background-size: cover;
     min-height: 100vh;
     position: relative;
+    text-align: center;
+    overflow: hidden;
 }
 
 header {
@@ -39,6 +41,88 @@ header .menu li a {
     color: #fff;
     text-decoration: 0;
     text-transform: uppercase;
+}
+
+.intro-container {
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+  }
+
+.intro-text {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.intro-text::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right, #e6007e, #ff1c67);
+    z-index: -1;
+    filter: blur(5px); /* Ombre floue */
+    animation: glow 1.5s ease-in-out infinite;
+}
+
+/* Animation de l'ombre */
+@keyframes glow {
+    0% { text-shadow: 0 0 10px #e6007e, 0 0 20px #e6007e, 0 0 30px #ff1c67, 0 0 40px #ff1c67; }
+    50% { text-shadow: 0 0 20px #e6007e, 0 0 30px #e6007e, 0 0 40px #ff1c67, 0 0 50px #ff1c67; }
+    100% { text-shadow: 0 0 10px #e6007e, 0 0 20px #e6007e, 0 0 30px #ff1c67, 0 0 40px #ff1c67; }
+  }
+
+/* Animation de fade-in */
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+.sub-text {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: #ff0066; /* Rose Squid Game */
+    font-style: italic;
+    animation: fadeIn 3s ease-in-out;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Les images passent à la ligne si nécessaire */
+    gap: 10px; /* Espace entre les images */
+}
+
+/* Ajustement des tailles */
+.pink-soldier {
+    width: 147px; /* 50% de 294px */
+    height: auto;
+}
+
+.mission-checkout {
+    width: 500px; /* Taille originale des Pink Soldier */
+    height: auto;
+}
+
+.sg-pixel {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 246px; /* 30% de 822px */
+    height: auto;
 }
 
 /*Responsive~~~~~~~ */
@@ -135,6 +219,29 @@ header .menu li a {
     .bannière p {
         text-align: justify;
     }
+
+    .intro-text {
+        font-size: 2rem; /* Réduction de la taille du texte */
+
+    }
+
+    .sub-text {
+        font-size: 1rem; /* Sous-texte plus petit */
+    }
+
+    .pink-soldier {
+        width: 100px; /* Réduction supplémentaire */
+    }
+
+    .mission-checkout {
+        width: 200px; /* Taille ajustée */
+    }
+
+    .sg-pixel {
+        width: 180px; /* 30% ajusté */
+        bottom: 10px;
+        right: 10px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -179,5 +286,31 @@ header .menu li a {
 
     header .menu li {
         padding: 15px; /* Moins d'espacement */
+    }
+
+    .intro-text {
+        font-size: 1.5rem; /* Texte principal encore plus petit */
+    }
+
+    .sub-text {
+        font-size: 0.9rem; /* Sous-texte réduit */
+    }
+
+    .center-container {
+        gap: 10px; /* Réduit l'espacement */
+    }
+
+    .pink-soldier {
+        width: 80px; /* Encore plus petit */
+    }
+
+    .mission-checkout {
+        width: 150px; /* Taille réduite */
+    }
+
+    .sg-pixel {
+        width: 120px; /* Ajusté pour le bas à droite */
+        bottom: 5px;
+        right: 5px;
     }
 }
