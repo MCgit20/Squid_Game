@@ -7,13 +7,12 @@
 }
 
 body {
-    background:linear-gradient(270deg, #000 0 40%, rgba(0, 0, 0, 0.1)),url("img.jpg");
+    background:linear-gradient(90deg, #000 0 40%, rgba(0, 0, 0, 0.1)),url("img.jpg");
     background-position: center;
     background-size: cover;
     min-height: 100vh;
     position: relative;
     text-align: center;
-    overflow: hidden;
 }
 
 header {
@@ -64,7 +63,7 @@ header .menu li a {
     top: 0;
     left: 0;
     color: transparent;
-    -webkit-background-clip: text;
+    background-clip: text;
     background-image: linear-gradient(to right, #e6007e, #ff1c67);
     z-index: -1;
     filter: blur(5px); /* Ombre floue */
@@ -125,8 +124,35 @@ header .menu li a {
     height: auto;
 }
 
-/*Responsive~~~~~~~ */
+.signature-container {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    margin-top: -10px; /* Réduction de l'espacement au-dessus */
+}
 
+/* Style du texte SVG */
+.signature {
+    width: 100%;
+    max-width: 400px; /* Taille maximale du SVG */
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 55px;
+    fill: none;
+    stroke: #e91e63; /* Couleur rose */
+    stroke-width: 3px;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 5s ease-out forwards;
+}
+
+/* Animation de dessin */
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/*Responsive~~~~~~~ */
 @media (max-width:842px) {
     body{
         background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("img.jpg");
@@ -242,6 +268,16 @@ header .menu li a {
         bottom: 10px;
         right: 10px;
     }
+
+    .signature {
+        max-width: 300px; /* Réduit la largeur maximale du SVG */
+        font-size: 45px; /* Réduction de la taille du texte */
+        stroke-width: 2.5px; /* Réduction de l'épaisseur du trait */
+    }
+
+    .signature-container {
+        margin-top: -5px; /* Ajuste l'espacement au-dessus */
+    }
 }
 
 @media (max-width: 480px) {
@@ -312,5 +348,15 @@ header .menu li a {
         width: 120px; /* Ajusté pour le bas à droite */
         bottom: 5px;
         right: 5px;
+    }
+
+    .signature {
+        max-width: 200px; /* Réduit davantage la largeur maximale */
+        font-size: 35px; /* Plus petite taille du texte */
+        stroke-width: 2px; /* Réduction de l'épaisseur du trait */
+    }
+
+    .signature-container {
+        margin-top: 0; /* Évite les marges excessives */
     }
 }
