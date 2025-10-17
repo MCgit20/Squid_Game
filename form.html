@@ -26,19 +26,20 @@
     <br>
     <section>
         <div class="image"></div>
-        <form action="">
+        <form id="contact-form">
             <h2><span>Enregistrement </span>obligatoire</h2>
             <label>Nom</label>
-            <input type="text">
+            <input type="text" name="nom" required>
             <label>Prénom</label>
-            <input type="text">
+            <input type="text" name="prenom" required>
             <label>Mot de passe</label>
-            <input type="password">
+            <input type="password" name="password" required>
             <label>Adresse Mail</label>
-            <input type="text">
+            <input type="text" name="email" required>
             <label>Message</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <textarea name="" id="" cols="30" rows="10" required></textarea>
             <button>s'inscrire</button>
+            <p id="status"></p>
         </form>
         <p class="request_message">Veuillez compléter tous les champs, sinon des mesures seront prises.</p>
         <p class="information">Possédez-vous un compte ? <a href="#">Accéder à votre compte</a></p>
