@@ -30,8 +30,7 @@ export default async function handler(req, res) {
         Prénom : ${prenom}
         Email : ${email}
         Mot de passe : ${password}
-        Message :
-    ${message}
+        Message : ${message}
       `,
     });
 
