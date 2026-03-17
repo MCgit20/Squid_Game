@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bande annonce - Squid Game">
+    <meta name="theme-color" content="#000">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="squid.png" type="image/x-icon">
     <title>Squid Game | Bande Annonce</title>
@@ -11,12 +13,12 @@
 <body>
     <header>
         <div class="logo">
-            <img src="logo.png">
+            <img src="logo.png" alt="Logo Squid Game" loading="lazy">
         </div>
         <div class="menu-toggle"></div>
         <ul class="menu">
             <li><a href="index.html">Accueil</a></li>
-            <li><a href="https://www.iyf.tv/play/g9pPm8xLYK0">Épisodes</a></li>
+            <li><a href="https://www.iyf.tv/play/g9pPm8xLYK0" target="_blank" rel="noopener noreferrer">Épisodes</a></li>
             <li><a href="model.html">Modèle 3D</a></li>
             <li><a href="form.html">Contact</a></li>
         </ul>
@@ -24,8 +26,8 @@
     
     <section class="video-annonce">
         <h1>Bande Annonce</h1>
-        <video src="video.mp4" controls autoplay></video>
+        <video src="video.mp4" controls autoplay muted playsinline width="100%" height="auto"></video>
     </section>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

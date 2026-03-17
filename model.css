@@ -6,13 +6,28 @@
     font-family: "Poppins", sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background:linear-gradient(90deg, #000 0 40%, rgba(0, 0, 0, 0.1)),url("img.jpg");
+    background: linear-gradient(90deg, #000 0 40%, rgba(0, 0, 0, 0.1)), url("img.jpg");
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
     min-height: 100vh;
     position: relative;
     text-align: center;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 header {
@@ -21,10 +36,16 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 header .logo img {
     width: 300px;
+    object-fit: contain;
 }
 
 header .menu {
@@ -38,14 +59,31 @@ header .menu li {
 
 header .menu li a {
     color: #fff;
-    text-decoration: 0;
+    text-decoration: none;
     text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+header .menu li a:hover {
+    color: #e83c80;
 }
 
 .intro-container {
     text-align: center;
-    animation: fadeIn 2s ease-in-out;
-  }
+    animation: slideDown 0.8s ease-out;
+    padding: 40px 20px;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .intro-text {
     font-size: 3rem;
@@ -66,123 +104,176 @@ header .menu li a {
     background-clip: text;
     background-image: linear-gradient(to right, #e6007e, #ff1c67);
     z-index: -1;
-    filter: blur(5px); /* Ombre floue */
+    filter: blur(5px);
     animation: glow 1.5s ease-in-out infinite;
 }
 
-/* Animation de l'ombre */
 @keyframes glow {
-    0% { text-shadow: 0 0 10px #e6007e, 0 0 20px #e6007e, 0 0 30px #ff1c67, 0 0 40px #ff1c67; }
-    50% { text-shadow: 0 0 20px #e6007e, 0 0 30px #e6007e, 0 0 40px #ff1c67, 0 0 50px #ff1c67; }
-    100% { text-shadow: 0 0 10px #e6007e, 0 0 20px #e6007e, 0 0 30px #ff1c67, 0 0 40px #ff1c67; }
-  }
-
-/* Animation de fade-in */
-@keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(50px);
+    0%, 100% {
+        text-shadow: 0 0 10px #e6007e, 0 0 20px #e6007e, 0 0 30px #ff1c67;
     }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
+    50% {
+        text-shadow: 0 0 20px #e6007e, 0 0 30px #e6007e, 0 0 40px #ff1c67;
     }
 }
 
 .sub-text {
     margin-top: 1rem;
     font-size: 1.5rem;
-    color: #ff0066; /* Rose Squid Game */
+    color: #ff0066;
     font-style: italic;
-    animation: fadeIn 3s ease-in-out;
+    animation: slideUp 1s ease-out 0.3s both;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .center-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Les images passent à la ligne si nécessaire */
-    gap: 10px; /* Espace entre les images */
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px 20px;
+    animation: fadeIn 1s ease-out 0.5s both;
 }
 
-/* Ajustement des tailles */
 .pink-soldier {
-    width: 147px; /* 50% de 294px */
+    width: 147px;
     height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.pink-soldier:hover {
+    transform: scale(1.05) rotate(-2deg);
+    filter: drop-shadow(0 0 15px rgba(232, 60, 128, 0.5));
 }
 
 .mission-checkout {
-    width: 500px; /* Taille originale des Pink Soldier */
+    width: 500px;
     height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.mission-checkout:hover {
+    transform: scale(1.03);
 }
 
 .sg-pixel {
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 246px; /* 30% de 822px */
+    width: 246px;
     height: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    z-index: 50;
+}
+
+.sg-pixel:hover {
+    opacity: 1;
 }
 
 .signature-container {
     display: flex;
-    justify-content: center; /* Centre horizontalement */
-    margin-top: -10px; /* Réduction de l'espacement au-dessus */
+    justify-content: center;
+    margin: 40px 0;
+    animation: fadeIn 1s ease-out 0.7s both;
 }
 
-/* Style du texte SVG */
 .signature {
     width: 100%;
-    max-width: 400px; /* Taille maximale du SVG */
+    max-width: 400px;
     font-family: 'Arial', sans-serif;
     font-weight: bold;
     font-size: 55px;
     fill: none;
-    stroke: #e91e63; /* Couleur rose */
+    stroke: #e91e63;
     stroke-width: 3px;
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
     animation: draw 5s ease-out forwards;
 }
 
-/* Animation de dessin */
 @keyframes draw {
     to {
         stroke-dashoffset: 0;
     }
 }
 
-/*Responsive~~~~~~~ */
-@media (max-width:842px) {
-    body{
-        background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("img.jpg");
+/* Responsive Media Queries */
+
+@media (max-width: 842px) {
+    body {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("img.jpg");
         background-position: center;
         background-size: cover;
     }
 
-    header{
-        padding: 15px;
+    header {
+        padding: 0 15px;
+        height: 70px;
     }
 
     header .logo img {
-        width: 300px;
+        width: 200px;
     }
 
-    header .menu{
+    header .menu {
         display: none;
     }
 
+    header .menu.responsive {
+        display: flex;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, rgba(232, 60, 128, 0.95), rgba(200, 0, 50, 0.95));
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        z-index: 150;
+        overflow-y: auto;
+        max-height: calc(100vh - 70px);
+        padding: 20px 0;
+    }
+
+    header .menu li {
+        padding: 15px 30px;
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header .menu li:last-child {
+        border-bottom: none;
+    }
+
     .menu-toggle {
+        display: flex;
         position: relative;
         width: 50px;
         height: 50px;
-        border: 2px solid #e83c80;
-        display: flex;
+        border: 2px solid #fff;
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        z-index: 2;
-        transition: 0.5s;
+        z-index: 200;
+        transition: all 0.4s ease;
+        background: transparent;
     }
 
     .menu-toggle::before {
@@ -190,14 +281,14 @@ header .menu li a {
         position: absolute;
         width: 28px;
         height: 2px;
-        background-color: #e83c80;
-        box-shadow: 0 10px 0 #e83c80;
-        transition: 0.5s;
+        background-color: #fff;
+        box-shadow: 0 10px 0 #fff;
+        transition: all 0.4s ease;
         transform: translateY(-10px);
     }
 
-    .menu-toggle.active::before{
-        box-shadow: 0 0 0 #e83c80;
+    .menu-toggle.active::before {
+        box-shadow: 0 0 0 #fff;
         transform: translateY(0) rotate(45deg);
     }
 
@@ -206,157 +297,130 @@ header .menu li a {
         position: absolute;
         width: 28px;
         height: 2px;
-        background-color: #e83c80;
+        background-color: #fff;
         transform: translateY(10px);
-        transition: 0.5s;
+        transition: all 0.4s ease;
     }
 
-    .menu-toggle.active::after{
-        box-shadow: 0 0 0 #e83c80;
+    .menu-toggle.active::after {
+        box-shadow: 0 0 0 #fff;
         transform: translateY(0) rotate(-45deg);
     }
 
-    header .menu.responsive {
-        display: flex;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(15px);
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 1;
-    }
-
-    header .menu li {
-        padding: 25px;
-    }
-
-    .bannière {
-        width: 90%;
-        padding: 0;
-        margin: 0 5%;
-    }
-
-    .bannière p {
-        text-align: justify;
+    .intro-container {
+        padding: 30px 15px;
     }
 
     .intro-text {
-        font-size: 2rem; /* Réduction de la taille du texte */
-
+        font-size: 2rem;
     }
 
     .sub-text {
-        font-size: 1rem; /* Sous-texte plus petit */
+        font-size: 1rem;
+    }
+
+    .center-container {
+        gap: 15px;
+        padding: 20px;
     }
 
     .pink-soldier {
-        width: 100px; /* Réduction supplémentaire */
+        width: 100px;
     }
 
     .mission-checkout {
-        width: 200px; /* Taille ajustée */
-    }
-
-    .sg-pixel {
-        width: 180px; /* 30% ajusté */
-        bottom: 10px;
-        right: 10px;
+        width: 200px;
     }
 
     .signature {
-        max-width: 300px; /* Réduit la largeur maximale du SVG */
-        font-size: 45px; /* Réduction de la taille du texte */
-        stroke-width: 2.5px; /* Réduction de l'épaisseur du trait */
-    }
-
-    .signature-container {
-        margin-top: -5px; /* Ajuste l'espacement au-dessus */
+        max-width: 300px;
+        font-size: 45px;
     }
 }
 
 @media (max-width: 480px) {
     body {
         background-size: cover;
-        background-attachment: fixed; /* Fixer l'image pour une meilleure apparence */
+        background-attachment: fixed;
     }
 
     header {
-        padding: 10px; /* Espacement réduit */
+        padding: 10px;
+        height: 60px;
     }
 
     header .logo img {
-        width: 150px; /* Logo encore plus petit */
+        width: 150px;
+    }
+
+    header .menu.responsive {
+        top: 60px;
     }
 
     .menu-toggle {
         width: 40px;
         height: 40px;
-        border-width: 1.5px; /* Réduction de l'épaisseur */
     }
 
-    .menu-toggle::before, .menu-toggle::after {
+    .menu-toggle::before,
+    .menu-toggle::after {
         width: 22px;
         height: 1.5px;
     }
 
-    header .menu.responsive {
-        font-size: 12px; /* Texte plus petit pour mobile */
+    .menu-toggle::before {
+        box-shadow: 0 8px 0 #fff;
+        transform: translateY(-8px);
     }
 
-    .bannière {
-        width: 100%;
-        margin: 0;
-        padding: 5px;
+    .menu-toggle.active::before {
+        transform: translateY(0) rotate(45deg);
     }
 
-    .bannière p {
-        font-size: 12px;
-        text-align: left; /* Alignement simplifié */
+    .menu-toggle::after {
+        transform: translateY(8px);
+    }
+
+    .menu-toggle.active::after {
+        transform: translateY(0) rotate(-45deg);
     }
 
     header .menu li {
-        padding: 15px; /* Moins d'espacement */
+        padding: 12px 20px;
+        font-size: 12px;
+    }
+
+    .intro-container {
+        padding: 20px 10px;
     }
 
     .intro-text {
-        font-size: 1.5rem; /* Texte principal encore plus petit */
+        font-size: 1.5rem;
     }
 
     .sub-text {
-        font-size: 0.9rem; /* Sous-texte réduit */
+        font-size: 0.9rem;
     }
 
     .center-container {
-        gap: 10px; /* Réduit l'espacement */
+        gap: 12px;
+        padding: 15px;
     }
 
     .pink-soldier {
-        width: 80px; /* Encore plus petit */
+        width: 80px;
     }
 
     .mission-checkout {
-        width: 150px; /* Taille réduite */
-    }
-
-    .sg-pixel {
-        width: 120px; /* Ajusté pour le bas à droite */
-        bottom: 5px;
-        right: 5px;
+        width: 150px;
     }
 
     .signature {
-        max-width: 200px; /* Réduit davantage la largeur maximale */
-        font-size: 35px; /* Plus petite taille du texte */
-        stroke-width: 2px; /* Réduction de l'épaisseur du trait */
+        max-width: 200px;
+        font-size: 35px;
     }
 
-    .signature-container {
-        margin-top: 0; /* Évite les marges excessives */
+    header .menu li {
+        padding: 15px;
     }
 }

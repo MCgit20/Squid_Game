@@ -1,49 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulaire de contact - Squid Game">
+    <meta name="theme-color" content="#e83c80">
     <link rel="stylesheet" href="form.css">
     <link rel="icon" href="squid.png" type="image/x-icon">
-    <title>Formulaire</title>
+    <title>Contact - Formulaire d'enregistrement</title>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="logo.png">
+            <img src="logo.png" alt="Logo Squid Game" loading="lazy">
         </div>
         <div class="menu-toggle"></div>
         <ul class="menu">
             <li><a href="index.html">Accueil</a></li>
-            <li><a href="https://www.iyf.tv/play/g9pPm8xLYK0">Épisodes</a></li>
+            <li><a href="https://www.iyf.tv/search/%E9%B1%BF%E9%B1%BC%E6%B8%B8%E6%88%8F" target="_blank" rel="noopener noreferrer">Épisodes</a></li>
             <li><a href="model.html">Modèle 3D</a></li>
             <li><a href="form.html">Contact</a></li>
         </ul>
     </header>
-    <br>
-    <br>
-    <br>
-    <section>
-        <div class="image"></div>
-        <form id="contact-form">
-            <h2><span>Enregistrement </span>obligatoire</h2>
-            <label>Nom</label>
-            <input type="text" name="nom" required>
-            <label>Prénom</label>
-            <input type="text" name="prenom" required>
-            <label>Mot de passe</label>
-            <input type="password" name="password" required>
-            <label>Adresse Mail</label>
-            <input type="text" name="email" required>
-            <label>Message</label>
-            <textarea name="message" cols="30" rows="10" required></textarea>
-            <button>s'inscrire</button>
-            <p id="status"></p>
-        </form>
-        <p class="request_message">Veuillez compléter tous les champs, sinon des mesures seront prises.</p>
-        <p class="information">Possédez-vous un compte ? <a href="#">Accéder à votre compte</a></p>
-    </section>
-    <script src="script.js"></script>
+
+    <main class="form-container">
+        <div class="form-wrapper">
+            <div class="form-header">
+                <h1>Rejoignez le <span>jeu</span></h1>
+                <p>Complétez votre inscription ci-dessous <span>pour participer</span></p>
+            </div>
+
+            <div class="form-content">
+                <div class="form-image">
+                    <img src="check_SG.jpg" alt="Squid Game Image" loading="lazy">
+                </div>
+
+                <form id="contact-form" class="form-main">
+                    <div class="form-group">
+                        <label for="nom">Nom <span class="required">*</span></label>
+                        <input type="text" id="nom" name="nom" required placeholder="Votre nom">
+                        <span class="error-message" id="nom-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prenom">Prénom <span class="required">*</span></label>
+                        <input type="text" id="prenom" name="prenom" required placeholder="Votre prénom">
+                        <span class="error-message" id="prenom-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Adresse Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="votre.email@example.com">
+                        <span class="error-message" id="email-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message <span class="required">*</span></label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Votre message..."></textarea>
+                        <span class="error-message" id="message-error"></span>
+                    </div>
+
+                    <p id="status" class="status-message"></p>
+                    <button type="submit" class="btn-submit">s'inscrire</button>
+                </form>
+            </div>
+
+            <div class="form-footer">
+                <p class="info-text">Possédez-vous un compte ? <a href="#">Accéder à votre compte</a></p>
+            </div>
+        </div>
+    </main>
+    <script src="script.js" defer></script>
 </body>
 </html>
