@@ -144,14 +144,19 @@ header .menu li a:hover {
     gap: 20px;
     padding: 40px 20px;
     animation: fadeIn 1s ease-out 0.5s both;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .pink-soldier {
-    width: 147px;
+    width: auto;
+    max-width: 110px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, filter 0.3s ease;
+    min-width: 60px;
 }
 
 .pink-soldier:hover {
@@ -160,11 +165,13 @@ header .menu li a:hover {
 }
 
 .mission-checkout {
-    width: 500px;
+    width: auto;
+    max-width: 360px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
+    min-width: 110px;
 }
 
 .mission-checkout:hover {
@@ -175,15 +182,13 @@ header .menu li a:hover {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 246px;
+    width: 100%;
+    max-width: 180px;
     height: auto;
     opacity: 0.7;
     transition: opacity 0.3s ease;
     z-index: 50;
-}
-
-.sg-pixel:hover {
-    opacity: 1;
+    min-width: 90px;
 }
 
 .signature-container {
@@ -214,6 +219,25 @@ header .menu li a:hover {
 }
 
 /* Responsive Media Queries */
+
+@media (max-width: 1200px) {
+    .center-container {
+        gap: 15px;
+        padding: 30px 20px;
+    }
+
+    .pink-soldier {
+        max-width: 90px;
+    }
+
+    .mission-checkout {
+        max-width: 280px;
+    }
+
+    .sg-pixel {
+        max-width: 150px;
+    }
+}
 
 @media (max-width: 842px) {
     body {
@@ -320,37 +344,38 @@ header .menu li a:hover {
     }
 
     .center-container {
-        gap: 15px;
-        padding: 20px;
+        gap: 12px;
+        padding: 20px 15px;
     }
 
     .pink-soldier {
-        width: 100px;
+        max-width: 75px;
     }
 
     .mission-checkout {
-        width: 200px;
+        max-width: 170px;
     }
 
     .signature {
         max-width: 300px;
         font-size: 45px;
     }
+
+    .sg-pixel {
+        max-width: 120px;
+        bottom: 15px;
+        right: 15px;
+    }
 }
 
-@media (max-width: 480px) {
-    body {
-        background-size: cover;
-        background-attachment: fixed;
-    }
-
+@media (max-width: 600px) {
     header {
         padding: 10px;
         height: 60px;
     }
 
     header .logo img {
-        width: 150px;
+        width: 140px;
     }
 
     header .menu.responsive {
@@ -403,16 +428,18 @@ header .menu li a:hover {
     }
 
     .center-container {
-        gap: 12px;
-        padding: 15px;
+        gap: 10px;
+        padding: 15px 10px;
+        align-items: center;
+        justify-content: center;
     }
 
     .pink-soldier {
-        width: 80px;
+        max-width: 70px;
     }
 
     .mission-checkout {
-        width: 150px;
+        max-width: 150px;
     }
 
     .signature {
@@ -420,7 +447,100 @@ header .menu li a:hover {
         font-size: 35px;
     }
 
+    .sg-pixel {
+        max-width: 110px;
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    header {
+        padding: 8px;
+        height: 55px;
+    }
+
+    header .logo img {
+        width: 120px;
+    }
+
+    header .menu.responsive {
+        top: 55px;
+    }
+
+    .menu-toggle {
+        width: 35px;
+        height: 35px;
+    }
+
+    .menu-toggle::before,
+    .menu-toggle::after {
+        width: 20px;
+        height: 1.5px;
+    }
+
+    .menu-toggle::before {
+        box-shadow: 0 7px 0 #fff;
+        transform: translateY(-7px);
+    }
+
+    .menu-toggle.active::before {
+        transform: translateY(0) rotate(45deg);
+    }
+
+    .menu-toggle::after {
+        transform: translateY(7px);
+    }
+
+    .menu-toggle.active::after {
+        transform: translateY(0) rotate(-45deg);
+    }
+
     header .menu li {
-        padding: 15px;
+        padding: 12px 15px;
+        font-size: 11px;
+    }
+
+    .intro-container {
+        padding: 15px 8px;
+    }
+
+    .intro-text {
+        font-size: 1.3rem;
+    }
+
+    .sub-text {
+        font-size: 0.85rem;
+    }
+
+    .center-container {
+        gap: 8px;
+        padding: 12px 8px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .pink-soldier {
+        max-width: 60px;
+    }
+
+    .mission-checkout {
+        max-width: 130px;
+    }
+
+    .signature {
+        max-width: 180px;
+        font-size: 30px;
+    }
+
+    .sg-pixel {
+        max-width: 90px;
+        bottom: 8px;
+        right: 8px;
     }
 }
